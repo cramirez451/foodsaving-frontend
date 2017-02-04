@@ -2,13 +2,11 @@ import StoreDetailModule from "./storeDetail";
 import StoreDetailController from "./storeDetail.controller";
 import StoreDetailComponent from "./storeDetail.component";
 import StoreDetailTemplate from "./storeDetail.html";
-import GroupComponentModule from "../group";
 
 const { module } = angular.mock;
 
 describe("StoreDetail", () => {
   beforeEach(module(StoreDetailModule));
-  beforeEach(module(GroupComponentModule));
   beforeEach(module(($stateProvider) => {
     $stateProvider
       .state("main", { url: "", abstract: true });

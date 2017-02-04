@@ -10,7 +10,7 @@ let createGroupModule = angular.module("createGroup", [
 
 .component("createGroup", createGroupComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("createGroup", {
@@ -21,7 +21,6 @@ let createGroupModule = angular.module("createGroup", [
         label: "{{'CREATEGROUP.TITLE' | translate}}"
       }
     });
-  hookProvider.setup("createGroup", { authenticated: true, anonymous: "login" });
 })
 
 .name;
