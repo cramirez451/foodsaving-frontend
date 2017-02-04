@@ -24,14 +24,14 @@ let groupDetailModule = angular.module("groupDetail", [
 
 .config(($stateProvider) => {
   "ngInject";
-
   $stateProvider
-    .state("group.groupDetail", {
-      abstract: true,
-      views: {
-        "mainView@group": {
-          component: "groupDetail"
-        }
+    .state("groupDetail", {
+      parent: "group",
+      url: "/{groupId:int}",
+      redirectTo: "group.groupDetail.pickups",
+      component: "groupDetail",
+      ncyBreadcrumb: {
+        label: "{{$ctrl.groupData.name}}"
       }
     });
 })

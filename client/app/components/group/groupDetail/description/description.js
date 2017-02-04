@@ -15,18 +15,15 @@ let descriptionModule = angular.module("description", [
 .config(($stateProvider, $mdMediaProvider) => {
   "ngInject";
   $stateProvider
-    .state("group.groupDetail.description", {
+    .state("description", {
+      parent: "group.groupDetail",
       url: "/description",
       redirectTo: () => {
         if ($mdMediaProvider.$get()("gt-sm")) {
-          return "group";
+          return "group.groupDetail";
         }
       },
-      views: {
-        "detail@group.groupDetail": {
-          component: "description"
-        }
-      },
+      component: "description",
       ncyBreadcrumb: {
         label: "{{'GROUP.DESCRIPTION' | translate}}"
       }

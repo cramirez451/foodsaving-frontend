@@ -4,15 +4,15 @@ import ngMaterial from "angular-material";
 import groupComponent from "./group.component";
 import AuthenticationModule from "../../common/authentication/authentication";
 import groupModule from "../../common/group/group";
-import store from "./store/storeDetail";
 import groupDetail from "./groupDetail/groupDetail";
+import createGroup from "./createGroup/createGroup";
 
 let groupPageModule = angular.module("group", [
   uiRouter,
   AuthenticationModule,
   ngMaterial,
   groupModule,
-  store,
+  createGroup,
   groupDetail
 ])
 
@@ -21,8 +21,8 @@ let groupPageModule = angular.module("group", [
   $stateProvider
     .state("group", {
       parent: "main",
-      url: "/group/{groupId:int}",
-      redirectTo: "group.groupDetail.pickups",
+      //abstract: "true",
+      url: "/group",
       component: "group",
       resolve: {
         groupData: ($state, Group, CurrentGroup, $stateParams) => {
@@ -32,9 +32,6 @@ let groupPageModule = angular.module("group", [
             return group;
           });
         }
-      },
-      ncyBreadcrumb: {
-        label: "{{$ctrl.groupData.name}}"
       }
     });
   hookProvider.setup("group", { authenticated: true, anonymous: "login" });

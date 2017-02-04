@@ -13,13 +13,10 @@ let MembersModule = angular.module("members", [
 .config(($stateProvider) => {
   "ngInject";
   $stateProvider
-    .state("group.groupDetail.members", {
+    .state("members", {
+      parent: "group.groupDetail",
       url: "/members",
-      views: {
-        "detail@group.groupDetail": {
-          component: "members"
-        }
-      },
+      component: "members",
       ncyBreadcrumb: {
         label: "{{'GROUP.MEMBERS' | translate}}"
       }

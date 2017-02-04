@@ -12,7 +12,7 @@ class HomeController {
   $onInit() {
     this.Group.listMy().then((data) => {
       if (data.length > 0) {
-        this.$state.go("group", { groupId: data[0].id });
+        this.$state.go("group.groupDetail", { groupId: data[0].id });
       } else {
         this.openJoinGroupDialog();
       }
@@ -25,7 +25,7 @@ class HomeController {
       targetEvent: $event,
       template: "<join-group></join-group>"
     }).then((groupId) => {
-      this.$state.go("group", { groupId });
+      this.$state.go("group.groupDetail", { groupId });
     });
   }
 

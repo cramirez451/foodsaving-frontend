@@ -1,7 +1,7 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import createGroupComponent from "./createGroup.component";
-import Group from "../../common/group/group";
+import Group from "../../../common/group/group";
 
 let createGroupModule = angular.module("createGroup", [
   uiRouter,
@@ -14,8 +14,8 @@ let createGroupModule = angular.module("createGroup", [
   "ngInject";
   $stateProvider
     .state("createGroup", {
-      parent: "main",
-      url: "/group/create",
+      parent: "group",
+      url: "/create",
       component: "createGroup",
       ncyBreadcrumb: {
         label: "{{'CREATEGROUP.TITLE' | translate}}"

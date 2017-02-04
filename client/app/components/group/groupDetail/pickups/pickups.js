@@ -13,12 +13,10 @@ let pickupsModule = angular.module("pickups", [
 .config(($stateProvider) => {
   "ngInject";
   $stateProvider
-    .state("group.groupDetail.pickups", {
-      views: {
-        "detail@group.groupDetail": {
-          component: "pickups"
-        }
-      },
+    .state("pickups", {
+      parent: "group.groupDetail",
+      url: "", // default view for groupDetail, so no URL
+      component: "pickups",
       ncyBreadcrumb: {
         label: "{{'GROUP.PICKUPS' | translate}}"
       }
